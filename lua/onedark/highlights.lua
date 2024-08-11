@@ -219,7 +219,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@markup.strike"] = {fg = c.fg, fmt = 'strikethrough'},
         ["@markup.strong"] = {fg = c.fg, fmt = 'bold'},
         ["@markup.underline"] = {fg = c.fg, fmt = 'underline'},
-        ["@module"] = colors.green,
+        ["@module"] = colors.Green,
         ["@none"] = colors.Fg,
         ["@number"] = colors.Orange,
         ["@number.float"] = colors.Orange,
