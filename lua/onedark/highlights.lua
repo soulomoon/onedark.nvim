@@ -295,7 +295,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
             ["@lsp.type.enumMember"] = hl.treesitter["@constant.builtin"],
             ["@lsp.type.interface"] = colors.bg_yello,
             ["@lsp.type.type"] = hl.treesitter["@type"],
-            ["@lsp.type.typeParameter"] = colors.purple,
+            ["@lsp.type.typeParameter"] = colors.Purple,
             ["@lsp.type.namespace"] = hl.treesitter["@module"],
             ["@lsp.type.property"] = hl.treesitter["@property"],
             ["@lsp.type.variable"] = hl.treesitter["@variable"],
