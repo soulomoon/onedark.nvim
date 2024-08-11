@@ -51,7 +51,7 @@ local colors = {
     DarkYellow = {fg = c.dark_yellow},
     DarkPurple = {fg = c.dark_purple},
     Diff_text = {fg = c.diff_text},
-    BG_Yellow = {bg = c.bg_yellow},
+    BG_Yellow = {fg = c.bg_yellow},
 
 
 --     vim.api.nvim_set_hl(0, "@lsp.type.namespace", { fg = "#57f049" })
