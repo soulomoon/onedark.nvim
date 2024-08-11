@@ -16,6 +16,26 @@ local function vim_highlights(highlights)
 end
 
 local colors = {
+		-- bg_blue = "#73b8f1",
+		-- bg_yellow = "#ebd09c",
+		-- fg = "#abb2bf",
+		-- purple = "#c678dd",
+		-- green = "#98c379",
+		-- orange = "#d19a66",
+		-- blue = "#61afef",
+		-- yellow = "#e5c07b",
+		-- cyan = "#56b6c2",
+		-- red = "#e86671",
+		-- grey = "#5c6370",
+		-- light_grey = "#848b98",
+		-- dark_cyan = "#2b6f77",
+		-- dark_red = "#993939",
+		-- dark_yellow = "#93691d",
+		-- dark_purple = "#8a3fa0",
+		-- diff_add = "#31392b",
+		-- diff_delete = "#382b2c",
+		-- diff_change = "#1c3448",
+		-- diff_text = "#2c5372",
     Fg = {fg = c.fg},
     LightGrey = {fg = c.light_grey},
     Grey = {fg = c.grey},
@@ -25,7 +45,23 @@ local colors = {
     Orange = {fg = c.orange},
     Green = {fg = c.green},
     Blue = {fg = c.blue},
-    Purple = {fg = c.purple}
+    Purple = {fg = c.purple},
+    DarkCyan = {fg = c.dark_cyan},
+    DarkRed = {fg = c.dark_red},
+    DarkYellow = {fg = c.dark_yellow},
+    DarkPurple = {fg = c.dark_purple},
+    Diff_text = {fg = c.diff_text},
+
+
+--     vim.api.nvim_set_hl(0, "@lsp.type.namespace", { fg = "#57f049" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.interface", { fg = "#daf049" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.operator", { fg = "#58e462" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.type", { fg = "#f81eba" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.typeParameter", { fg = "#cd4ca0" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.property", { fg = "#ff8811" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.method", { fg = "#1ef1f8" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = "#ffe100" })
+-- vim.api.nvim_set_hl(0, "@lsp.type.variable", { fg = "#EF596F" })
 }
 hl.common = {
     Normal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg0},
@@ -161,7 +197,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@function"] = {fg = c.blue, fmt = cfg.code_style.functions},
         ["@function.builtin"] = {fg = c.cyan, fmt = cfg.code_style.functions},
         ["@function.macro"] = {fg = c.cyan, fmt = cfg.code_style.functions},
-        ["@function.method"] = {fg = c.blue, fmt = cfg.code_style.functions},
+        ["@function.method"] = {fg = c.cyan, fmt = cfg.code_style.functions},
         ["@keyword"] = {fg = c.purple, fmt = cfg.code_style.keywords},
         ["@keyword.conditional"] = {fg = c.purple, fmt = cfg.code_style.keywords},
         ["@keyword.directive"] = colors.Purple,
@@ -183,13 +219,13 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@markup.strike"] = {fg = c.fg, fmt = 'strikethrough'},
         ["@markup.strong"] = {fg = c.fg, fmt = 'bold'},
         ["@markup.underline"] = {fg = c.fg, fmt = 'underline'},
-        ["@module"] = colors.Yellow,
+        ["@module"] = colors.DarkYellow,
         ["@none"] = colors.Fg,
         ["@number"] = colors.Orange,
         ["@number.float"] = colors.Orange,
         ["@operator"] = colors.Fg,
         ["@parameter.reference"] = colors.Fg,
-        ["@property"] = colors.Cyan,
+        ["@property"] = colors.Orange,
         ["@punctuation.delimiter"] = colors.LightGrey,
         ["@punctuation.bracket"] = colors.LightGrey,
         ["@string"] = {fg = c.green, fmt = cfg.code_style.strings},
@@ -205,7 +241,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
         ["@danger"] = colors.Fg,
         ["@type"] = colors.Yellow,
         ["@type.builtin"] = colors.Orange,
-        ["@variable"] = {fg = c.fg, fmt = cfg.code_style.variables},
+        ["@variable"] = {fg = c.red, fmt = cfg.code_style.variables},
         ["@variable.builtin"] = {fg = c.red, fmt = cfg.code_style.variables},
         ["@variable.member"] = colors.Cyan,
         ["@variable.parameter"] = colors.Red,
@@ -257,18 +293,21 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
             ["@lsp.type.comment"] = hl.treesitter[ "@comment"],
             ["@lsp.type.enum"] = hl.treesitter["@type"],
             ["@lsp.type.enumMember"] = hl.treesitter["@constant.builtin"],
-            ["@lsp.type.interface"] = hl.treesitter["@type"],
-            ["@lsp.type.typeParameter"] = hl.treesitter["@type"],
-            ["@lsp.type.keyword"] = hl.treesitter["@keyword"],
+            ["@lsp.type.interface"] = colors.Green,
+            ["@lsp.type.type"] = hl.treesitter["@type"],
+            ["@lsp.type.typeParameter"] = colors.purple,
             ["@lsp.type.namespace"] = hl.treesitter["@module"],
-            ["@lsp.type.parameter"] = hl.treesitter["@variable.parameter"],
             ["@lsp.type.property"] = hl.treesitter["@property"],
             ["@lsp.type.variable"] = hl.treesitter["@variable"],
             ["@lsp.type.macro"] = hl.treesitter["@function.macro"],
+            ["@lsp.type.function"] = hl.treesitter["@function"],
             ["@lsp.type.method"] = hl.treesitter["@function.method"],
+            ["@lsp.type.class"] = colors.Orange,
             ["@lsp.type.number"] = hl.treesitter["@number"],
             ["@lsp.type.generic"] = hl.treesitter["@text"],
             ["@lsp.type.builtinType"] = hl.treesitter["@type.builtin"],
+            ["@lsp.type.parameter"] = hl.treesitter["@variable.parameter"],
+            ["@lsp.type.keyword"] = hl.treesitter["@keyword"],
             ["@lsp.typemod.method.defaultLibrary"] = hl.treesitter["@function"],
             ["@lsp.typemod.function.defaultLibrary"] = hl.treesitter["@function"],
             ["@lsp.typemod.operator.injected"] = hl.treesitter["@operator"],
