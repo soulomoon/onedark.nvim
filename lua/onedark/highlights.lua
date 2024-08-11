@@ -51,6 +51,7 @@ local colors = {
     DarkYellow = {fg = c.dark_yellow},
     DarkPurple = {fg = c.dark_purple},
     Diff_text = {fg = c.diff_text},
+    BG_Yellow = {bg = c.bg_yellow},
 
 
 --     vim.api.nvim_set_hl(0, "@lsp.type.namespace", { fg = "#57f049" })
@@ -293,7 +294,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
             ["@lsp.type.comment"] = hl.treesitter[ "@comment"],
             ["@lsp.type.enum"] = hl.treesitter["@type"],
             ["@lsp.type.enumMember"] = hl.treesitter["@constant.builtin"],
-            ["@lsp.type.interface"] = colors.bg_yello,
+            ["@lsp.type.interface"] = colors.BG_Yellow,
             ["@lsp.type.type"] = hl.treesitter["@type"],
             ["@lsp.type.typeParameter"] = colors.Purple,
             ["@lsp.type.namespace"] = hl.treesitter["@module"],
